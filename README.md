@@ -323,7 +323,7 @@ for further explanation on the importance of `rpi_nodes`.
 
 ```yaml
 # Defines DHCP scope end address
-dhcp_scope_end_range: "{{ dhcp_scope_subnet }}.131"
+dhcp_scope_end_range: "{{ dhcp_scope_subnet }}.137"
 
 # Defines DHCP scope start address
 dhcp_scope_start_range: "{{ dhcp_scope_subnet }}.128"
@@ -333,7 +333,7 @@ dhcp_scope_subnet: 192.168.100
 
 # Defines the number of nodes in cluster
 # Extremely important to define correctly, otherwise provisioning will fail.
-rpi_nodes: 5
+rpi_nodes: 11
 ```
 
 Based on the above we can ensure that we are only handing out `4` IP addresses
@@ -358,6 +358,13 @@ rpi-k8s-2 ansible_host=192.168.100.128
 rpi-k8s-3 ansible_host=192.168.100.129
 rpi-k8s-4 ansible_host=192.168.100.130
 rpi-k8s-5 ansible_host=192.168.100.131
+rpi-k8s-6 ansible_host=192.168.100.132
+rpi-k8s-7 ansible_host=192.168.100.133
+rpi-k8s-8 ansible_host=192.168.100.134
+rpi-k8s-9 ansible_host=192.168.100.135
+rpi-k8s-10 ansible_host=192.168.100.136
+rpi-k8s-11 ansible_host=192.168.100.137
+
 ```
 
 ### Ansible Playbook
@@ -436,8 +443,8 @@ file in `inventory/group_vars/all` with the following defined variables:
 
 ```yaml
 k8s_wifi_country: US
-k8s_wifi_password: mysecretwifipassword
-k8s_wifi_ssid: mywifissid
+k8s_wifi_password: goodlife
+k8s_wifi_ssid: mycloudfw
 ```
 
 > CAUTION: If your WI-FI IP address changes, `Ansible` will fail as it will no
